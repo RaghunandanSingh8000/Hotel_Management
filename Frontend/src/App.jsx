@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Navbar from './Component/Navbar';
 import Home from './Component/Home';
@@ -19,7 +19,7 @@ import React from 'react';
 
 function App() {
   return (
-    <Router>
+    <>
       <Navbar />
       <div>
         <Routes>
@@ -39,7 +39,7 @@ function App() {
         </Routes>
       </div>
       <Footer />
-    </Router>
+    </>
   );
 }
 

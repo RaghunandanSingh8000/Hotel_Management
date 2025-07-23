@@ -2,9 +2,13 @@
   "name": "frontend",
   "private": true,
   "version": "0.0.0",
+  "description": "Hotel Management Frontend built with React, Vite, and Tailwind CSS",
+  "author": "Raghunandan Singh Rathore",
   "type": "module",
+  "homepage": "https://raghunandansingh8000.github.io/Hotel_Management/",
   "scripts": {
     "dev": "vite",
+    "start": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"

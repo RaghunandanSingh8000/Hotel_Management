@@ -7,10 +7,8 @@ import slide2 from "../assets/slide2.webp";
 // Example images (local images imported for Vite/CRA compatibility)
 const images = [
   side5,
-  "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=900&q=80",
   slide4,
   slide2,
-  "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=900&q=80"
 ];
 
 const features = [
