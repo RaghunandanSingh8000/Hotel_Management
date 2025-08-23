@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import royalLogo from "../assets/Royal_.jpg";
 
-// Improved Logo: use project-relative path for portability
+// Fix: Use direct public path instead of import
 const Logo = () => (
   <div className="flex items-center gap-2">
     <img
-      src={royalLogo}
+      src="/Slide/Royal_.jpg"
       alt="Rathore Hotel Logo"
       className="w-12 h-12 rounded-full border-4 border-gold shadow-lg object-cover bg-black"
       onError={e => { e.target.style.display = "none"; }}

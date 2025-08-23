@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+
+
 const rooms = [
   {
     name: "Standard Room",
-    img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
+    img: "/public/Room/Room1.webp", // Use direct path
     desc: "A cozy room with all basic amenities, perfect for solo travelers or couples.",
     price: "₹2,500/night",
     features: ["Free Wi-Fi", "Queen Bed", "Smart TV", "AC", "Digital Key"],
@@ -15,7 +17,7 @@ const rooms = [
   },
   {
     name: "Deluxe Room",
-    img: "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=600&q=80",
+    img: "/public/Room/Room2.webp", // Use direct path
     desc: "Spacious room with a beautiful view, modern decor, and extra comfort.",
     price: "₹4,000/night",
     features: ["King Bed", "Balcony", "Mini Bar", "AI Concierge", "Smart Lighting"],
@@ -26,7 +28,7 @@ const rooms = [
   },
   {
     name: "Suite",
-    img: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80",
+    img: "/public/Room/Room3.jpg",
     desc: "Luxury suite with living area, premium amenities, and exclusive services.",
     price: "₹7,500/night",
     features: ["Living Room", "Digital Key", "Jacuzzi", "Personal Butler", "Smart Energy"],
@@ -37,7 +39,7 @@ const rooms = [
   },
   {
     name: "Family Room",
-    img: "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=600&q=80",
+    img: "/public/Room/Room4.jpg",
     desc: "Perfect for families, with two queen beds, play area, and extra space.",
     price: "₹5,500/night",
     features: ["2 Queen Beds", "Kids Play Area", "Smart TV", "Mini Fridge", "Digital Key"],
@@ -48,7 +50,7 @@ const rooms = [
   },
   {
     name: "Executive Room",
-    img: "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80",
+    img: "/public/Room/Room5.webp",
     desc: "Designed for business travelers, with workspace, fast Wi-Fi, and lounge access.",
     price: "₹6,000/night",
     features: ["King Bed", "Workspace", "Lounge Access", "Coffee Machine", "Smart Lighting"],
@@ -59,7 +61,7 @@ const rooms = [
   },
   {
     name: "Presidential Suite",
-    img: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=80",
+    img: "/public/Room/Room6.webp",
     desc: "Ultimate luxury with private terrace, jacuzzi, and personal butler service.",
     price: "₹15,000/night",
     features: ["Private Terrace", "Jacuzzi", "Butler", "Bar", "Smart Energy"],
@@ -68,10 +70,9 @@ const rooms = [
     view: "Panoramic City View",
     offer: "Champagne on arrival"
   },
-  // New Rooms
   {
     name: "Heritage Suite",
-    img: "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=600&q=80",
+    img: "/public/Room/Room7.jpg",
     desc: "Experience royal heritage with antique decor, private balcony, and luxury amenities.",
     price: "₹10,000/night",
     features: ["Antique Decor", "Private Balcony", "Butler", "Smart TV", "Digital Key"],
@@ -82,7 +83,7 @@ const rooms = [
   },
   {
     name: "Royal Penthouse",
-    img: "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80",
+    img: "/public/Room/Room8.webp",
     desc: "Top-floor penthouse with panoramic views, private pool, and exclusive lounge.",
     price: "₹20,000/night",
     features: ["Private Pool", "Lounge", "King Bed", "Bar", "Smart Energy"],
@@ -93,7 +94,7 @@ const rooms = [
   },
   {
     name: "Eco Room",
-    img: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80",
+    img: "/public/Room/Room9.jpeg",
     desc: "Eco-friendly room with green tech, air purification, and natural materials.",
     price: "₹3,500/night",
     features: ["Green Tech", "Air Purifier", "Natural Decor", "Smart Lighting", "Digital Key"],
@@ -144,6 +145,8 @@ const featureIcons = {
   "Kids Entertainment": "🎮"
 };
 
+const roomRatings = [4.2, 4.7, 4.9, 4.5, 4.6, 5.0, 4.8, 5.0, 4.3];
+
 const Rooms = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#232946] via-[#f7c873] to-[#0f5132] py-14 px-2 sm:px-4">
@@ -162,6 +165,11 @@ const Rooms = () => {
               className="w-full h-48 object-cover rounded-xl mb-5 shadow-lg border-2 border-gold/30"
             />
             <h3 className="text-2xl font-bold text-royal mb-2 text-center">{room.name}</h3>
+            <div className="mb-2 flex items-center justify-center">
+              <span className="text-yellow-500 text-lg">★</span>
+              <span className="ml-1 font-semibold text-yellow-700">{roomRatings[idx % roomRatings.length]}</span>
+              <span className="ml-1 text-xs text-gray-600">(Guest Rating)</span>
+            </div>
             <p className="text-gray-800 mb-3 text-center">{room.desc}</p>
             <div className="flex flex-wrap gap-2 mb-2 justify-center">
               <span className="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-semibold shadow">
@@ -194,10 +202,15 @@ const Rooms = () => {
             >
               Book This Room
             </Link>
+            <Link
+              to="/room-availability"
+              className="mt-2 px-6 py-2 bg-gradient-to-r from-green-400 to-emerald-600 text-white rounded-full font-bold shadow hover:scale-105 transition text-center"
+            >
+              Check Availability
+            </Link>
           </div>
         ))}
       </div>
-      {/* New Feature: Room Comparison */}
       <div className="mt-12 text-center">
         <span className="inline-block bg-royal/10 text-royal px-5 py-2 rounded-full font-semibold shadow">
           Need help choosing? <Link to="/contact" className="underline hover:text-gold">Contact our team</Link>
@@ -211,6 +224,25 @@ const Rooms = () => {
           </Link>
         </div>
       </div>
+      <a
+        href="https://wa.me/919999999999?text=Hi%20I%20need%20help%20with%20room%20booking"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50"
+        style={{
+          background: "#25D366",
+          borderRadius: "50%",
+          width: "60px",
+          height: "60px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
+        }}
+        title="Chat with our AI assistant on WhatsApp"
+      >
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style={{ width: "36px", height: "36px" }} />
+      </a>
     </div>
   );
 };
