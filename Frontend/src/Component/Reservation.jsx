@@ -34,6 +34,7 @@ const Reservation = () => {
     requests: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [noRooms, setNoRooms] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -45,13 +46,25 @@ const Reservation = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     // Validate check-in and check-out dates
     if (new Date(form.checkin) >= new Date(form.checkout)) {
       alert("Check-out date must be after check-in date.");
       return;
     }
 
+    // Simulate room availability check (replace with API call in real app)
+    // Example: No rooms available for Presidential Suite on 2025-09-10
+    if (
+      form.roomType === "Presidential" &&
+      form.checkin === "2050-09-10"
+    ) {
+      setNoRooms(true);
+      setSubmitted(false);
+      return;
+    }
+
+    setNoRooms(false);
     setSubmitted(true);
     // Here you can add API/payment gateway integration
   };
@@ -73,6 +86,11 @@ const Reservation = () => {
             View All Rooms
           </Link>
         </div>
+        {noRooms && (
+          <div className="bg-red-100 text-red-700 p-4 rounded-lg mb-4 text-center font-semibold shadow">
+            ❌ No rooms available for selected dates. Please try different dates or room type.
+          </div>
+        )}
         {submitted ? (
           <div className="bg-green-100 text-green-800 p-6 rounded-lg shadow text-center">
             <h3 className="text-2xl font-semibold mb-2">Reservation Successful!</h3>
@@ -229,5 +247,4 @@ const Reservation = () => {
     </div>
   );
 };
-
 export default Reservation;
