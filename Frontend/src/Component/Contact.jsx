@@ -439,46 +439,7 @@ const Contact = () => {
           </div>
         )}
 
-        {/* Emergency Contact & Social Media */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Emergency Contact */}
-          <div className="bg-gradient-to-br from-red-50 via-white to-red-50 backdrop-blur-sm rounded-2xl p-8 border-2 border-red-300 text-center">
-            <div className="text-4xl mb-4">🚨</div>
-            <h3 className="text-xl font-bold text-red-700 mb-4 font-['Playfair_Display',serif]">
-              24/7 Emergency Support
-            </h3>
-            <p className="text-red-600 mb-6">For urgent assistance, medical emergencies, or immediate support</p>
-            <a
-              href="tel:+911800123456"
-              className="inline-block px-8 py-4 bg-gradient-to-r from-red-500 to-red-600 text-white font-bold rounded-full shadow-lg hover:scale-105 transition-all"
-            >
-              📞 Call Emergency Hotline
-            </a>
-          </div>
-
-          {/* Social Media */}
-          <div className="bg-gradient-to-br from-gold/20 via-white to-gold/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-gold/30 text-center">
-            <div className="text-4xl mb-4">👑</div>
-            <h3 className="text-xl font-bold text-royal mb-4 font-['Playfair_Display',serif]">
-              Follow Our Royal Journey
-            </h3>
-            <p className="text-gray-600 mb-6">Stay connected with us on social media for exclusive updates</p>
-            <div className="flex justify-center gap-4">
-              {socialLinks.map((social, idx) => (
-                <a
-                  key={idx}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`w-12 h-12 rounded-full bg-white border-2 border-gold/30 hover:border-gold flex items-center justify-center hover:scale-110 transition-all shadow-lg ${social.color}`}
-                  title={social.platform}
-                >
-                  <span className="text-xl">{social.icon}</span>
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
+        
       </div>
     </div>
   );

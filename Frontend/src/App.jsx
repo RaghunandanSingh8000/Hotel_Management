@@ -37,6 +37,7 @@ function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/admin" element={<Admin />} />
         </Routes>
+        
       </div>
       <Footer />
     </>

@@ -202,12 +202,7 @@ const Rooms = () => {
             >
               Book This Room
             </Link>
-            <Link
-              to="/room-availability"
-              className="mt-2 px-6 py-2 bg-gradient-to-r from-green-400 to-emerald-600 text-white rounded-full font-bold shadow hover:scale-105 transition text-center"
-            >
-              Check Availability
-            </Link>
+            
           </div>
         ))}
       </div>
@@ -215,14 +210,7 @@ const Rooms = () => {
         <span className="inline-block bg-royal/10 text-royal px-5 py-2 rounded-full font-semibold shadow">
           Need help choosing? <Link to="/contact" className="underline hover:text-gold">Contact our team</Link>
         </span>
-        <div className="mt-8">
-          <Link
-            to="/compare-rooms"
-            className="inline-block px-6 py-2 bg-gradient-to-r from-gold to-yellow-400 text-royal font-bold rounded-full shadow hover:scale-105 hover:bg-gold transition border-2 border-gold"
-          >
-            Compare All Rooms
-          </Link>
-        </div>
+        
       </div>
       <a
         href="https://wa.me/919999999999?text=Hi%20I%20need%20help%20with%20room%20booking"

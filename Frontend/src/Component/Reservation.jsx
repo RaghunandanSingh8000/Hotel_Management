@@ -45,6 +45,13 @@ const Reservation = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    // Validate check-in and check-out dates
+    if (new Date(form.checkin) >= new Date(form.checkout)) {
+      alert("Check-out date must be after check-in date.");
+      return;
+    }
+
     setSubmitted(true);
     // Here you can add API/payment gateway integration
   };
