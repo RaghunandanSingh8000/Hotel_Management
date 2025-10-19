@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const rooms = [
   {
     name: "Standard Room",
-    img: "/public/Room/Room1.webp", // Use direct path
+    img: "/Room/Room1.webp", // Use direct path
     desc: "A cozy room with all basic amenities, perfect for solo travelers or couples.",
     price: "₹2,500/night",
     features: ["Free Wi-Fi", "Queen Bed", "Smart TV", "AC", "Digital Key"],
@@ -17,7 +17,7 @@ const rooms = [
   },
   {
     name: "Deluxe Room",
-    img: "/public/Room/Room2.webp", // Use direct path
+    img: "/Room/Room2.webp", // Use direct path
     desc: "Spacious room with a beautiful view, modern decor, and extra comfort.",
     price: "₹4,000/night",
     features: ["King Bed", "Balcony", "Mini Bar", "AI Concierge", "Smart Lighting"],
@@ -28,7 +28,7 @@ const rooms = [
   },
   {
     name: "Suite",
-    img: "/public/Room/Room3.jpg",
+    img: "/Room/Room3.jpg",
     desc: "Luxury suite with living area, premium amenities, and exclusive services.",
     price: "₹7,500/night",
     features: ["Living Room", "Digital Key", "Jacuzzi", "Personal Butler", "Smart Energy"],
@@ -39,7 +39,7 @@ const rooms = [
   },
   {
     name: "Family Room",
-    img: "/public/Room/Room4.jpg",
+    img: "/Room/Room4.jpg",
     desc: "Perfect for families, with two queen beds, play area, and extra space.",
     price: "₹5,500/night",
     features: ["2 Queen Beds", "Kids Play Area", "Smart TV", "Mini Fridge", "Digital Key"],
@@ -50,7 +50,7 @@ const rooms = [
   },
   {
     name: "Executive Room",
-    img: "/public/Room/Room5.webp",
+    img: "/Room/Room5.webp",
     desc: "Designed for business travelers, with workspace, fast Wi-Fi, and lounge access.",
     price: "₹6,000/night",
     features: ["King Bed", "Workspace", "Lounge Access", "Coffee Machine", "Smart Lighting"],
@@ -61,7 +61,7 @@ const rooms = [
   },
   {
     name: "Presidential Suite",
-    img: "/public/Room/Room6.webp",
+    img: "/Room/Room6.webp",
     desc: "Ultimate luxury with private terrace, jacuzzi, and personal butler service.",
     price: "₹15,000/night",
     features: ["Private Terrace", "Jacuzzi", "Butler", "Bar", "Smart Energy"],
@@ -72,7 +72,7 @@ const rooms = [
   },
   {
     name: "Heritage Suite",
-    img: "/public/Room/Room7.jpg",
+    img: "/Room/Room7.jpg",
     desc: "Experience royal heritage with antique decor, private balcony, and luxury amenities.",
     price: "₹10,000/night",
     features: ["Antique Decor", "Private Balcony", "Butler", "Smart TV", "Digital Key"],
@@ -83,7 +83,7 @@ const rooms = [
   },
   {
     name: "Royal Penthouse",
-    img: "/public/Room/Room8.webp",
+    img: "/Room/Room8.webp",
     desc: "Top-floor penthouse with panoramic views, private pool, and exclusive lounge.",
     price: "₹20,000/night",
     features: ["Private Pool", "Lounge", "King Bed", "Bar", "Smart Energy"],
@@ -94,7 +94,7 @@ const rooms = [
   },
   {
     name: "Eco Room",
-    img: "/public/Room/Room9.jpeg",
+    img: "/Room/Room9.jpeg",
     desc: "Eco-friendly room with green tech, air purification, and natural materials.",
     price: "₹3,500/night",
     features: ["Green Tech", "Air Purifier", "Natural Decor", "Smart Lighting", "Digital Key"],
