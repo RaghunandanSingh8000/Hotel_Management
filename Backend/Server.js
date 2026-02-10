@@ -12,10 +12,10 @@ app.get('/', (req, res) => {
   res.send('Hotel Management API is running');
 });
 
-// MongoDB connection (no deprecated options)
-mongoose.connect(process.env.MONGO_URI)
+// MongoDB connection
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected'))
-  .catch(err => console.log(err));
+  .catch(err => console.log('MongoDB connection error:', err));
 
 // Booking Schema
 const bookingSchema = new mongoose.Schema({
@@ -68,6 +68,16 @@ app.post('/api/bookings', async (req, res) => {
   }
 });
 
+// Get all bookings
+app.get('/api/bookings', async (req, res) => {
+  try {
+    const bookings = await Booking.find();
+    res.json(bookings);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // Contact endpoint
 app.post('/api/contact', async (req, res) => {
   try {
@@ -79,6 +89,16 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
+// Get all contacts
+app.get('/api/contact', async (req, res) => {
+  try {
+    const contacts = await Contact.find();
+    res.json(contacts);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // Reservation endpoint
 app.post('/api/reservations', async (req, res) => {
   try {
@@ -87,6 +107,16 @@ app.post('/api/reservations', async (req, res) => {
     res.status(201).json({ message: 'Reservation saved!' });
   } catch (err) {
     res.status(400).json({ error: err.message });
+  }
+});
+
+// Get all reservations
+app.get('/api/reservations', async (req, res) => {
+  try {
+    const reservations = await Reservation.find();
+    res.json(reservations);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
 });
 

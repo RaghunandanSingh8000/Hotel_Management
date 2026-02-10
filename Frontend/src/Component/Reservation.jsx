@@ -44,7 +44,7 @@ const Reservation = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Validate check-in and check-out dates
@@ -54,7 +54,6 @@ const Reservation = () => {
     }
 
     // Simulate room availability check (replace with API call in real app)
-    // Example: No rooms available for Presidential Suite on 2025-09-10
     if (
       form.roomType === "Presidential" &&
       form.checkin === "2050-09-10"
@@ -65,8 +64,23 @@ const Reservation = () => {
     }
 
     setNoRooms(false);
-    setSubmitted(true);
-    // Here you can add API/payment gateway integration
+
+    // Send data to backend
+    try {
+      const res = await fetch("http://localhost:5000/api/reservations", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        const data = await res.json();
+        alert(data.error || "Reservation failed.");
+      }
+    } catch (err) {
+      alert("Could not connect to server.");
+    }
   };
 
   return (
@@ -109,6 +123,7 @@ const Reservation = () => {
           </div>
         ) : (
           <form className="space-y-4 bg-white/80 rounded-xl shadow-lg p-6" onSubmit={handleSubmit}>
+            {/* ...all your form fields remain unchanged... */}
             <div>
               <label className="block text-sm font-semibold text-royal mb-1">Full Name</label>
               <input
@@ -121,6 +136,7 @@ const Reservation = () => {
                 className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-gold"
               />
             </div>
+            {/* ...rest of your form fields... */}
             <div>
               <label className="block text-sm font-semibold text-royal mb-1">Email</label>
               <input
@@ -247,4 +263,5 @@ const Reservation = () => {
     </div>
   );
 };
+
 export default Reservation;
